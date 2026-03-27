@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+@import "tailwindcss";
+@plugin "daisyui";
+
+.outfit_font {
+  font-family: "Outfit", sans-serif;
+}
+
+
+/* Disable track interaction */
+input[type="range"] {
+  pointer-events: none;
+}
+
+/* Enable ONLY thumb interaction */
+input[type="range"]::-webkit-slider-thumb {
+  pointer-events: all;
+  appearance: none;
+  height: 16px;
+  width: 16px;
+  background: #0A400C;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+input[type="range"]::-moz-range-thumb {
+  pointer-events: all;
+  height: 16px;
+  width: 16px;
+  background: #0A400C;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+
+/* 0A400C -> dark green */
+
+@media (min-width: 768px){
+    .section_title::before,
+    .section_title::after{
+        content: "";
+        position: absolute;
+        width: 50px;
+        height: 2px;
+        background: rgb(0,0,12);
+        top: 60%;
+    }
+    
+    .section_title::before{
+        right: 50%;
+        margin-right: 60px;
+    }
+    
+    .section_title::after{
+        left: 50%;
+        margin-left: 60px;
+    }
+}
+
+@media (min-width: 1024px){
+    .section_title::before,
+    .section_title::after{
+        content: "";
+        position: absolute;
+        width: 50px;
+        height: 2px;
+        background: rgb(0,0,12);
+        top: 50%;
+    }
+    
+    .section_title::before{
+        right: 50%;
+        margin-right: 70px;
+    }
+    
+    .section_title::after{
+        left: 50%;
+        margin-left: 70px;
+    }
+}
