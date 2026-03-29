@@ -4,7 +4,7 @@ import { FaPlus } from "react-icons/fa6";
 import { FiMinus } from "react-icons/fi";
 import { PiShoppingCartBold } from "react-icons/pi";
 import Swal from 'sweetalert2';
-import { NavLink } from 'react-router';
+import { NavLink, useNavigation } from 'react-router';
 import { IoBagCheckOutline } from "react-icons/io5"; 
 import { toast, ToastContainer } from 'react-toastify';
 import { useDispatch, useSelector } from 'react-redux';
@@ -16,6 +16,8 @@ const MyCart = () => {
   console.log(items);
 
   const dispatch = useDispatch();
+
+  const navigation = useNavigation();
 
 
   // for deleting item
@@ -56,6 +58,14 @@ const MyCart = () => {
   const totalPrice = items.reduce((total,item) => total + item.productQuantity * item.productPrice , 0 );
 
   // console.log(totalPrice)
+
+  if(navigation.state === "loading"){
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <span className="loading loading-spinner loading-lg text-[#0A400C]"></span>
+      </div>
+    );
+  }
   
   return (
     <div>
